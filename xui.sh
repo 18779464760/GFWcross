@@ -57,12 +57,32 @@ installSocat() {
         apt install -y socat
         if [ $? -eq 0 ]
         then
-            # installExpect
-            curlAcme
+            installCron
             break
         else
             attempt_num=$[$attempt_num+1]
             echo -e "\033[31m安装socat失败，重试中\033[0m"
+        fi
+    done
+    if [ $attempt_num -eq $max_attempts]; then
+    echo "任务失败超过 $max_attempts 次，请检查."
+    exit 1
+    fi
+}
+
+installCron() {
+    attempt_num=0
+    while [ $attempt_num -lt $max_attempts ]
+    do
+        echo -e "\033[32m正在安装cron\033[0m"
+        apt-get -y install cron
+        if [ $? -eq 0 ]
+        then
+            curlAcme
+            break
+        else
+            attempt_num=$[$attempt_num+1]
+            echo -e "\033[31m安装cron失败，重试中\033[0m"
         fi
     done
     if [ $attempt_num -eq $max_attempts]; then

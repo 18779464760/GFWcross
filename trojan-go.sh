@@ -345,6 +345,14 @@ getData() {
     [[ -z "$NEED_BBR" ]] && NEED_BBR=y
     [[ "$NEED_BBR" = "Y" ]] && NEED_BBR=y
     colorEcho $BLUE " 安装BBR：$NEED_BBR"
+
+    echo ""
+    colorEcho $BLUE "  请选择证书申请商[默认：zerossl]"
+        echo "    1)zerossl ,无申请次数限制,可能会申请失败"
+        echo "    2)letsencrypt ,每周每个域名申请上限20个,超出会申请失败"
+        read -p "  请选择：[1/2]" acmeServer
+    echo ""
+    colorEcho $BLUE " 证书申请商：$acmeServer"
 }
 
 installNginx() {
@@ -424,11 +432,6 @@ getCert() {
         curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.ch
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
-        
-        colorEcho $BLUE "  请选择证书申请商[默认：zerossl]"
-        echo "    1)zerossl ,无申请次数限制,可能会申请失败"
-        echo "    2)letsencrypt ,每周每个域名申请上限20个,超出会申请失败"
-        read -p "  请选择：[1/2]" acmeServer
         
         if [["$acmeServer" = "1"]]; then
             ~/.acme.sh/acme.sh --set-default-ca --server zerossl
