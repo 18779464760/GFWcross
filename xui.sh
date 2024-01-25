@@ -211,7 +211,7 @@ installCert() {
 # 安装x-ui面板
 installXUi() {
 echo -e "\033[32m正在安装x-ui面板\033[0m"
-bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh) <<EOF
+bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) <<EOF
 y
 admin
 admin
