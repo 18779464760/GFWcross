@@ -15,16 +15,16 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: yang01|vfwu.love@xray.com, server: transit.yaso.top, port: 3001, client-fingerprint: chrome, type: trojan, password: Cd3TTzhRij, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /SuZ73, headers: {Host: transit.yaso.top}}}
-  - {name: yang02|5dXC.love@xray.com, server: transit.yaso.top, port: 3002, client-fingerprint: chrome, type: trojan, password: wGFdEMBzyK, sni: transit.yaso.top, skip-cert-verify: false}
-  - {name: yang03|cvHb.love@xray.com, server: transit.yaso.top, port: 3003, client-fingerprint: chrome, type: trojan, password: I7Jqhv1LXF, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /BzW4Pj, headers: {Host: transit.yaso.top}}}
-  - {name: yang04|XYBh.love@xray.com, server: transit.yaso.top, port: 3004, client-fingerprint: chrome, type: trojan, password: swmzejIomt, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Lzi2qb, headers: {Host: transit.yaso.top}}}
-  - {name: yang05|rg1Q.love@xray.com, server: transit.yaso.top, port: 3005, client-fingerprint: chrome, type: trojan, password: za7vQroKiu, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Piz2T, headers: {Host: transit.yaso.top}}}
-  - {name: yang06|eKrw.love@xray.com, server: transit.yaso.top, port: 3006, client-fingerprint: chrome, type: trojan, password: fXnG3YGHpF, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Siz1Rd, headers: {Host: transit.yaso.top}}}
-  - {name: yang07|9PLP.love@xray.com, server: transit.yaso.top, port: 3007, client-fingerprint: chrome, type: trojan, password: 4WXJz0tS9G, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Roz8W, headers: {Host: transit.yaso.top}}}
-  - {name: yang08|qoiF.love@xray.com, server: transit.yaso.top, port: 3008, client-fingerprint: chrome, type: trojan, password: NCw0zL2UTH, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Zuvi1, headers: {Host: transit.yaso.top}}}
-  - {name: yang09|aR4y.love@xray.com, server: transit.yaso.top, port: 3009, client-fingerprint: chrome, type: trojan, password: ljZ6HhKyIH, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /VCou4q, headers: {Host: transit.yaso.top}}}
-  - {name: yang10|ltIW.love@xray.com, server: transit.yaso.top, port: 3010, client-fingerprint: chrome, type: trojan, password: 0n9xD9rOkA, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Vi1fi, headers: {Host: transit.yaso.top}}}
+  - {name: yang01, server: transit.yaso.top, port: 3001, client-fingerprint: chrome, type: trojan, password: Cd3TTzhRij, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /SuZ73, headers: {Host: transit.yaso.top}}}
+  - {name: yang02, server: transit.yaso.top, port: 3002, client-fingerprint: chrome, type: trojan, password: wGFdEMBzyK, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /UiYy45, headers: {Host: transit.yaso.top}}}
+  - {name: yang03, server: transit.yaso.top, port: 3003, client-fingerprint: chrome, type: trojan, password: I7Jqhv1LXF, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /BzW4Pj, headers: {Host: transit.yaso.top}}}
+  - {name: yang04, server: transit.yaso.top, port: 3004, client-fingerprint: chrome, type: trojan, password: swmzejIomt, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Lzi2qb, headers: {Host: transit.yaso.top}}}
+  - {name: yang05, server: transit.yaso.top, port: 3005, client-fingerprint: chrome, type: trojan, password: za7vQroKiu, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Piz2T, headers: {Host: transit.yaso.top}}}
+  - {name: yang06, server: transit.yaso.top, port: 3006, client-fingerprint: chrome, type: trojan, password: fXnG3YGHpF, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Siz1Rd, headers: {Host: transit.yaso.top}}}
+  - {name: yang07, server: transit.yaso.top, port: 3007, client-fingerprint: chrome, type: trojan, password: 4WXJz0tS9G, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Roz8W, headers: {Host: transit.yaso.top}}}
+  - {name: yang08, server: transit.yaso.top, port: 3008, client-fingerprint: chrome, type: trojan, password: NCw0zL2UTH, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Zuvi1, headers: {Host: transit.yaso.top}}}
+  - {name: yang09, server: transit.yaso.top, port: 3009, client-fingerprint: chrome, type: trojan, password: ljZ6HhKyIH, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /VCou4q, headers: {Host: transit.yaso.top}}}
+  - {name: yang10, server: transit.yaso.top, port: 3010, client-fingerprint: chrome, type: trojan, password: 0n9xD9rOkA, sni: transit.yaso.top, skip-cert-verify: false, network: ws, ws-opts: {path: /Vi1fi, headers: {Host: transit.yaso.top}}}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -40,16 +40,16 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     proxies:
-      - yang01|vfwu.love@xray.com
-      - yang02|5dXC.love@xray.com
-      - yang03|cvHb.love@xray.com
-      - yang04|XYBh.love@xray.com
-      - yang05|rg1Q.love@xray.com
-      - yang06|eKrw.love@xray.com
-      - yang07|9PLP.love@xray.com
-      - yang08|qoiF.love@xray.com
-      - yang09|aR4y.love@xray.com
-      - yang10|ltIW.love@xray.com
+      - yang01
+      - yang02
+      - yang03
+      - yang04
+      - yang05
+      - yang06
+      - yang07
+      - yang08
+      - yang09
+      - yang10
   - name: 📲 电报消息
     type: select
     proxies:
