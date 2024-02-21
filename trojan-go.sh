@@ -433,9 +433,7 @@ getCert() {
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
         
-        if [["$acmeServer" = "1"]]; then
-            ~/.acme.sh/acme.sh --set-default-ca --server zerossl
-        elif [["$acmeServer" = "2"]]; then
+        if [[ "$acmeServer" = "2" ]]; then
             ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
         else
             ~/.acme.sh/acme.sh --set-default-ca --server zerossl
