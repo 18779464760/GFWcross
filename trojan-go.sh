@@ -776,9 +776,7 @@ autoRun() {
     sed -i '$a WantedBy=multi-user.target' /lib/systemd/system/rc-local.service
     touch "/etc/rc.local"
     sed -i '$a #!/bin/sh -e' /etc/rc.local
-    sed -i '$a bash <(curl -Ls https://raw.githubusercontent.com/18779464760/GFWcross/main/trojan-go.sh) <<EOF' /etc/rc.local
-    sed -i '$a 5' /etc/rc.local
-    sed -i '$a EOF' /etc/rc.local
+    sed -i '$a echo '5' | bash <(curl -Ls https://raw.githubusercontent.com/18779464760/GFWcross/main/trojan-go.sh)' /etc/rc.local
     sed -i '$a exit 0' /etc/rc.local
     chmod +x /etc/rc.local
     systemctl enable rc-local
@@ -910,6 +908,11 @@ reconfig() {
 
 
 showInfo() {
+    if systemctl status rc-local.service; then
+        autoStatus="${GREEN}已自启${PLAIN}"
+    else
+        autoStatus="${RED}未自启${PLAIN}"
+    fi
     res=`status`
     if [[ $res -lt 2 ]]; then
         echo -e " ${RED}trojan-go未安装，请先安装！${PLAIN}"
@@ -928,13 +931,15 @@ showInfo() {
     echo -n " trojan-go运行状态："
     statusText
     echo ""
+    echo -n " 自启动运行状态："
+    autoStatus
+    echo ""
     echo -e " ${BLUE}trojan-go配置文件: ${PLAIN} ${RED}${CONFIG_FILE}${PLAIN}"
     echo -e " ${BLUE}trojan-go配置信息：${PLAIN}"
     echo -e "   IP：${RED}$IP${PLAIN}"
     echo -e "   伪装域名/主机名(host)/SNI/peer名称：${RED}$domain${PLAIN}"
     echo -e "   端口(port)：${RED}$port${PLAIN}"
     echo -e "   密码(password)：${RED}$password${PLAIN}"
-    echo -e "   自启动："systemctl status rc-local.service
     if [[ $ws = "true" ]]; then
         echo -e "   websocket：${RED}true${PLAIN}"
         wspath=`grep path $CONFIG_FILE | cut -d: -f2 | tr -d \",' '`
