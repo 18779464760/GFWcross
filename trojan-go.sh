@@ -122,14 +122,6 @@ statusText() {
     esac
 }
 
-autoStatus() {
-    if systemctl status rc-local.service > /dev/null; then
-        echo -e ${GREEN}已自启${PLAIN}
-    else
-        echo -e ${RED}未自启${PLAIN}
-    fi
-}
-
 getVersion() {
     VERSION=`curl -fsSL ${V6_PROXY}https://api.github.com/repos/p4gefau1t/trojan-go/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/'| head -n1`
     if [[ ${VERSION:0:1} != "v" ]];then
@@ -933,9 +925,6 @@ showInfo() {
     echo -n " trojan-go运行状态："
     statusText
     echo ""
-    echo -n " 自启动运行状态："
-    autoStatus
-    echo ""
     echo -e " ${BLUE}trojan-go配置文件: ${PLAIN} ${RED}${CONFIG_FILE}${PLAIN}"
     echo -e " ${BLUE}trojan-go配置信息：${PLAIN}"
     echo -e "   IP：${RED}$IP${PLAIN}"
@@ -989,9 +978,6 @@ menu() {
     echo 
     echo -n " 当前状态："
     statusText
-    echo 
-    echo -n " 自启动运行状态："
-    autoStatus
     echo 
 
     read -p " 请选择操作[0-10]：" answer
