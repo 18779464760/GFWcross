@@ -122,6 +122,14 @@ statusText() {
     esac
 }
 
+autoStatus() {
+    if systemctl status rc-local.service; then
+        echo -e ${GREEN}已自启${PLAIN}
+    else
+        echo -e ${RED}未自启${PLAIN}
+    fi
+}
+
 getVersion() {
     VERSION=`curl -fsSL ${V6_PROXY}https://api.github.com/repos/p4gefau1t/trojan-go/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/'| head -n1`
     if [[ ${VERSION:0:1} != "v" ]];then
@@ -904,14 +912,6 @@ reconfig() {
     showInfo
 
     bbrReboot
-}
-
-autoStatus() {
-    if systemctl status rc-local.service; then
-        echo -e ${GREEN}已自启${PLAIN}
-    else
-        echo -e ${RED}未自启${PLAIN}
-    fi
 }
 
 showInfo() {
