@@ -763,11 +763,26 @@ install() {
 
     setSelinux
     installBBR
+    autoRun
 
     start
     showInfo
 
     bbrReboot
+}
+
+autoRun() {
+    sed -i '$a [Install]' /lib/systemd/system/rc-local.service
+    sed -i '$a WantedBy=multi-user.target' /lib/systemd/system/rc-local.service
+    touch "/etc/rc.local"
+    sed -i '$a #!/bin/sh -e' /etc/rc.local
+    sed -i '$a bash <(curl -Ls https://raw.githubusercontent.com/18779464760/GFWcross/main/trojan-go.sh) <<EOF' /etc/rc.local
+    sed -i '$a 5' /etc/rc.local
+    sed -i '$a EOF' /etc/rc.local
+    sed -i '$a exit 0' /etc/rc.local
+    chmod +x /etc/rc.local
+    systemctl enable rc-local
+    systemctl start rc-local.service
 }
 
 bbrReboot() {
@@ -919,6 +934,7 @@ showInfo() {
     echo -e "   伪装域名/主机名(host)/SNI/peer名称：${RED}$domain${PLAIN}"
     echo -e "   端口(port)：${RED}$port${PLAIN}"
     echo -e "   密码(password)：${RED}$password${PLAIN}"
+    echo -e "   自启动："systemctl status rc-local.service
     if [[ $ws = "true" ]]; then
         echo -e "   websocket：${RED}true${PLAIN}"
         wspath=`grep path $CONFIG_FILE | cut -d: -f2 | tr -d \",' '`
