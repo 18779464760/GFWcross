@@ -123,7 +123,7 @@ statusText() {
 }
 
 autoStatus() {
-    if systemctl status rc-local.service; then
+    if systemctl status rc-local.service > /dev/null; then
         echo -e ${GREEN}已自启${PLAIN}
     else
         echo -e ${RED}未自启${PLAIN}
