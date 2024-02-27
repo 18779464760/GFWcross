@@ -906,13 +906,15 @@ reconfig() {
     bbrReboot
 }
 
+autoStatus() {
+    if systemctl status rc-local.service; then
+        echo -e ${GREEN}已自启${PLAIN}
+    else
+        echo -e ${RED}未自启${PLAIN}
+    fi
+}
 
 showInfo() {
-    if systemctl status rc-local.service; then
-        autoStatus="${GREEN}已自启${PLAIN}"
-    else
-        autoStatus="${RED}未自启${PLAIN}"
-    fi
     res=`status`
     if [[ $res -lt 2 ]]; then
         echo -e " ${RED}trojan-go未安装，请先安装！${PLAIN}"
@@ -987,6 +989,9 @@ menu() {
     echo 
     echo -n " 当前状态："
     statusText
+    echo 
+    echo -n " 自启动运行状态："
+    autoStatus
     echo 
 
     read -p " 请选择操作[0-10]：" answer
