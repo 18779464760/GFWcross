@@ -763,24 +763,11 @@ install() {
 
     setSelinux
     installBBR
-    autoRun
-
+    sed -i '25i Restart=always' /etc/systemd/system/multi-user.target.wants/nginx.service
     start
     showInfo
 
     bbrReboot
-}
-
-autoRun() {
-    sed -i '$a [Install]' /lib/systemd/system/rc-local.service
-    sed -i '$a WantedBy=multi-user.target' /lib/systemd/system/rc-local.service
-    touch "/etc/rc.local"
-    sed -i '$a #!/bin/sh -e' /etc/rc.local
-    sed -i '$a echo '5' | bash <(curl -Ls https://raw.githubusercontent.com/18779464760/GFWcross/main/trojan-go.sh)' /etc/rc.local
-    sed -i '$a exit 0' /etc/rc.local
-    chmod +x /etc/rc.local
-    systemctl enable rc-local
-    systemctl start rc-local.service
 }
 
 bbrReboot() {
