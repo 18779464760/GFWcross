@@ -765,6 +765,7 @@ install() {
     installBBR
     sed -i '25i Restart=always' /usr/lib/systemd/system/nginx.service
     sed -i '26i RestartSec=10' /usr/lib/systemd/system/nginx.service
+    systemctl daemon-reload
     start
     showInfo
 
